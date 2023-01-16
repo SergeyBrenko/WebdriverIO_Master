@@ -1,3 +1,5 @@
+const {ZebrunnerReporter, ZebrunnerService} = require('javascript-agent-wdio');
+
 exports.config={
     runner:'local',    
     specs: [
@@ -10,8 +12,17 @@ exports.config={
     cucumberOpts: {        
         require: ['./test/step-definition/*.ts'],
     },
-    reporter:'dot',
-    services:['chromedriver'],
+    reporters: [
+        [
+            ZebrunnerReporter, 
+            {}
+        ]
+    ],
+    services: [
+        [
+            ZebrunnerService
+        ]
+    ],
     autoCompileOpts: {
         autoCompile: true, 
         tsNodeOpts: {
