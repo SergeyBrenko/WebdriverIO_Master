@@ -1,3 +1,5 @@
+const {ZebrunnerReporter, ZebrunnerService} = require('javascript-agent-wdio');
+
 exports.config={
     runner:'local',    
     specs: [
@@ -6,9 +8,18 @@ exports.config={
     capabilities: [{
         browserName: 'chrome',        
     }],    
-    framework: 'mocha',  
-    reporter:'dot',
-    services:['chromedriver'],
+    framework: 'mocha', 
+    reporters: [
+        [
+            ZebrunnerReporter, 
+            {}
+        ]
+    ],
+    services:[
+        [
+            ZebrunnerService
+        ]
+    ],
     autoCompileOpts: {
         autoCompile: true, 
         tsNodeOpts: {
