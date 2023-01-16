@@ -6,7 +6,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "npx wdio run myconfig.ts"
+    "test": "npx wdio run myConfig.ts"
   },
   "author": "",
   "license": "ISC",
